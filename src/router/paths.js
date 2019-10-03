@@ -32,8 +32,9 @@ export default [
     view: 'Usuarios'
   },
   {
-    path: '/nuevaContraseña',
-    view: 'resetpassword'
+    path: '/nuevacontrasena',
+    view: 'resetpassword',
+
   },
   {
     path: '/regalos',

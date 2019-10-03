@@ -34,6 +34,7 @@
 import { required, minLength, maxLength, sameAs } from 'vuelidate/lib/validators'
 import { auth } from '@/firebase'
 import { mapMutations, mapGetters } from 'vuex'
+import store from '@/store'
 
 export default {
   data() {
@@ -59,6 +60,7 @@ export default {
     }
   },
   computed: {
+
     ...mapGetters('sesion', ['saludo']),
     erroresPassword() {
       let errores = []
@@ -73,6 +75,16 @@ export default {
       if (!this.$v.f1.repetirPassword.$dirty) { return errores }
       if (!this.$v.f1.repetirPassword.sameAs) { errores.push('Las contraseñas no coinciden.') }
       return errores
+    }
+  },
+  beforeRouterEnter (to, from, next) {
+    if(!this.$store.state.usuario) {
+      next()
+    }
+    else{
+
+      next({name:'notifications'})
+
     }
   },
   methods: {
@@ -125,20 +137,9 @@ export default {
       try {
         await auth.confirmPasswordReset(this.actionCode, this.f1.password)
 
-        let cred = await auth.signInWithEmailAndPassword(this.email, this.f1.password)
+        await auth.signInWithEmailAndPassword(this.email, this.f1.password)
 
-        let usuario = {
-          uid: cred.user.uid,
-          userName: 'AndresXD',
-        nombres: 'Andres',
-        apellidos: 'López',
-        sexo: 'M',
-        descripcion: 'Descripcion',
-        biografia: 'https://www.facebook.com/profile.php?id=100006544260839',
-        fotoPerfil: 'https://scontent.fscl3-1.fna.fbcdn.net/v/t1.0-9/37783653_2245034152391372_5930065232532602880_n.jpg?_nc_cat=110&_nc_oc=AQkW3volK8IrAhTQvPyAz3B5MTsJVgqsekNJCifLRLwNhJfPu1ruEHHs6qUQx1ez220&_nc_ht=scontent.fscl3-1.fna&oh=532484e15167ec06a74500a709c81b91&oe=5DF3681E'
-        }
 
-        this.actualizarUsuario(usuario)
         this.mostrarExito(this.saludo + ', tu contraseña ha sido cambiada exitosamente.')
         this.$router.push({ name: 'home' })
       }

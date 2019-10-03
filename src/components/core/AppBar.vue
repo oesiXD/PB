@@ -39,10 +39,14 @@
               </v-list-item>
             </v-list>
           </v-card>
+
         </v-menu>
 
         <v-btn to="/user-profile" icon>
           <v-icon color="tertiary">mdi-account</v-icon>
+        </v-btn>
+           <v-btn  @click="salir" icon>
+          <v-icon color="tertiary">mdi-account-remove</v-icon>
         </v-btn>
       </v-row>
     </v-toolbar-items>
@@ -51,7 +55,7 @@
 
 <script>
 // Utilities
-import { mapMutations } from "vuex";
+import { mapMutations ,mapActions} from "vuex";
 
 export default {
   data: () => ({
@@ -91,7 +95,14 @@ export default {
       } else {
         this.responsive = false;
       }
+    },
+     ...mapActions(['cerrarSesion']),
+    salir() {
+      this.cerrarSesion()
+      this.menu = false
+      this.$router.push({ name: 'App' })
     }
+
   }
 };
 </script>

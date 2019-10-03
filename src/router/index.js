@@ -17,11 +17,9 @@ import paths from './paths'
 
 function route (path, view, name) {
   return {
-    name: name || view,
-    path,
-    component: (resovle) => import(
-      `@/views/${view}.vue`
-    ).then(resovle)
+    name: name || view, path,
+    component: (resovle) => import(`@/views/${view}.vue`).then(resovle)
+
   }
 }
 
@@ -29,6 +27,8 @@ Vue.use(Router)
 
 // Create a new router
 const router = new Router({
+
+
   mode: 'history',
   routes: paths.map(path => route(path.path, path.view, path.name)).concat([
     { path: '*', redirect: '/' }
@@ -41,8 +41,13 @@ const router = new Router({
       return { selector: to.hash }
     }
     return { x: 0, y: 0 }
-  }
+  },
+
+
+
+
 })
+
 
 Vue.use(Meta)
 
