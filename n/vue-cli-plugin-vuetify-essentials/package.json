@@ -1,0 +1,36 @@
+{
+  "_args": [
+    [
+      "vue-cli-plugin-vuetify-essentials@0.5.3",
+      "D:\\panel"
+    ]
+  ],
+  "_from": "vue-cli-plugin-vuetify-essentials@0.5.3",
+  "_id": "vue-cli-plugin-vuetify-essentials@0.5.3",
+  "_inBundle": false,
+  "_integrity": "sha512-zty/3+uPoTwdAlluIvMqKTIYeJE0MNquVp8rTnEoMUf9UdJncG9tsQtQKbG5LCCjzArSj4D08gWA2ITTZJearQ==",
+  "_location": "/vue-cli-plugin-vuetify-essentials",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "vue-cli-plugin-vuetify-essentials@0.5.3",
+    "name": "vue-cli-plugin-vuetify-essentials",
+    "escapedName": "vue-cli-plugin-vuetify-essentials",
+    "rawSpec": "0.5.3",
+    "saveSpec": null,
+    "fetchSpec": "0.5.3"
+  },
+  "_requiredBy": [],
+  "_resolved": "https://registry.npmjs.org/vue-cli-plugin-vuetify-essentials/-/vue-cli-plugin-vuetify-essentials-0.5.3.tgz",
+  "_spec": "0.5.3",
+  "_where": "D:\\panel",
+  "description": "Generator project for https://github.com/vuetifyjs/vue-cli-preset-vuetify",
+  "devDependencies": {
+    "@release-it/conventional-changelog": "^1.1.0"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "name": "vue-cli-plugin-vuetify-essentials",
+  "version": "0.5.3"
+}
