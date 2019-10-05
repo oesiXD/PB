@@ -1,10 +1,11 @@
 <template>
   <v-footer
     id="core-footer"
-    fixed
+     style="margin-top:1%;"
     height="82"
+
   >
-    <div class="footer-items">
+    <div  class="footer-items">
       <span
         v-for="link in links"
         :key="link.name"

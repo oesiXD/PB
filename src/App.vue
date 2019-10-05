@@ -210,8 +210,7 @@ export default {
 
       try {
         await auth.signInWithEmailAndPassword(this.formulario.email, this.formulario.password)
-          this.$store.commit('mostrarExito', this.$store.getters.saludo)
-        this.$router.push({ name: 'Dashboard' })
+
       }
       catch (error) {
 
