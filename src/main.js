@@ -7,6 +7,9 @@ import './plugins'
 import vuetify from './plugins/vuetify'
 import { sync } from 'vuex-router-sync'
 import { auth } from './firebase'
+import VueTelInput from 'vue-tel-input'
+
+Vue.use(VueTelInput)
 
 sync(store, router)
 Vue.use(Vuelidate)

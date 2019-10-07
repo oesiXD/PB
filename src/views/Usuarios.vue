@@ -472,10 +472,12 @@ search: '',
     async guardarUsuario(uid) {
       let usuario = {
           uid,
-          userName: 'admin',
+          correo:this.f1.email,
+          userName: 'user',
           nombres: this.f2.nombres,
+          telefono: '111111111',
           apellidos: this.f2.apellidos,
-          fechaNacimiento: new Date(this.fechaNacimiento).toISOString(),
+          fechaNacimiento: new Date(this.fechaNacimiento).toISOString().substr(0, 10),
           descripcion: 'Descripción',
           fotoPerfil: 'https://scontent.fscl3-1.fna.fbcdn.net/v/t1.0-9/37783653_2245034152391372_5930065232532602880_n.jpg?_nc_cat=110&_nc_oc=AQkW3volK8IrAhTQvPyAz3B5MTsJVgqsekNJCifLRLwNhJfPu1ruEHHs6qUQx1ez220&_nc_ht=scontent.fscl3-1.fna&oh=532484e15167ec06a74500a709c81b91&oe=5DF3681E'
         }
@@ -496,7 +498,7 @@ search: '',
         this.mostrarOcupado({ titulo: 'Creando Registro', mensaje: 'Estamos registrando tu información...' })
       let cred =  await auth.createUserWithEmailAndPassword(this.f1.email, this.f1.password)
         this.guardarUsuario(cred.user.uid)
-       this.$store.commit('mostrarExito', this.$store.getters.saludo)
+       this.$store.commit('mostrarExito',('datos guardados'))
       }
       catch (error) {
 

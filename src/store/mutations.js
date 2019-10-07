@@ -37,4 +37,12 @@ export default {
       state.usuario = usuario
     },
 
+    actualizarNombresApellidos(state, payload) {
+      if(!state.usuario) { return }
+
+      state.usuario.nombres = payload.nombres
+      state.usuario.apellidos = payload.apellidos
+      state.usuario.telefono = payload.telefono
+
+    }
 }
